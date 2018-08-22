@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Services;
 
@@ -118,7 +120,10 @@ namespace WebApplication
 					}
 				}
 			}
-			return chargeList;
+            StringBuilder sb = new StringBuilder();
+            XmlHelper.GetXmlByObjList<PatientMi>(sb, chargeList);
+            string a = sb.ToString();
+            return chargeList;
 		}
 		public class PatientMi
 		{
